@@ -3,13 +3,15 @@
 import { Actor, Color, Engine, FadeInOut, Font, Keys, Label, Scene, TextAlign, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
 
-export  class welcomeScene extends Scene {
+export class welcomeScene extends Scene {
 
     iniciarJogo?: Label
     // metodo inicio de vida.
 
+
+
     onTransition(direction: "in" | "out"): Transition | undefined {
-        return new FadeInOut ({
+        return new FadeInOut({
             direction: direction,
             color: Color.Black,
             duration: 1000
@@ -26,7 +28,7 @@ export  class welcomeScene extends Scene {
             width: 400,
             height: 50,
             // posicao = X metade da tela, eixo y = 300
-            pos: vec(engine.drawWidth / 2, 300), 
+            pos: vec(engine.drawWidth / 2, 300),
             font: new Font({
                 color: Color.White,
                 size: 40,
@@ -36,16 +38,17 @@ export  class welcomeScene extends Scene {
         })
         this.iniciarJogo = new Label({
             text: 'Pressione \"Enter"\ para iniciar...',
-            pos: vec(engine.halfDrawWidth, 550), 
+            pos: vec(engine.halfDrawWidth, 550),
             font: new Font({
                 color: Color.White,
-                size : 20,
+                size: 20,
                 textAlign: TextAlign.Center,
                 family: "Anta",
-          
+
             })
-            })
-        
+        })
+
+
 
         // adiciona a frase na cena, tela 
         this.add(fraseBemVindo)
@@ -54,6 +57,7 @@ export  class welcomeScene extends Scene {
         let actorLogo = new Actor({
             pos: vec(engine.drawWidth / 2, 430)
         })
+
 
         // Utilizar iamgem logo
         let imagemLogo = Resources.Logo.toSprite()
@@ -67,22 +71,25 @@ export  class welcomeScene extends Scene {
         // adicionando Actor Logo na tela 
         this.add(actorLogo)
 
-        // desafio = adicionar o texto  na tela
+        // desafio2
         this.add(this.iniciarJogo)
 
-        // configurar para ficar piscando
-         this.iniciarJogo?.actions.repeatForever( context => {
-             context.fade(0 , 1000)
-             context.fade(1 , 1000)
-         })
 
-         this.input.keyboard.on("press", (event) =>{
+
+
+        // configurar para ficar piscando
+        this.iniciarJogo?.actions.repeatForever(context => {
+            context.fade(0, 1000)
+            context.fade(1, 1000)
+        })
+
+        this.input.keyboard.on("press", (event) => {
             //  casoa tecla pressionada for "Enter, deve ir para a proxima Scene"
-            if(event.key == Keys.Enter || event.key == Keys.NumpadEnter){
+            if (event.key == Keys.Enter || event.key == Keys.NumpadEnter) {
                 // direciona para a cena historia (historiaScene)
                 engine.goToScene("historia")
             }
-         })
+        })
     }
     // forma de fazer o efeito opacidade.
     // onPostUpdate(engine: Engine<any>, delta: number): void {
