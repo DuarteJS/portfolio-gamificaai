@@ -1,59 +1,82 @@
 /* fonte de escrita */
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
 
-  body {
-    background-color: black;
-  }
+body {
+  background-color: black;
+}
 
-  .container-game{
-    height: 800px;
-    width: 1200px;
+.container-game {
+  height: 800px;
+  width: 1200px;
 
-    margin: 20px auto;
+  margin: 20px auto;
 
-    position: relative;
+  position: relative;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .sobre-gamifica{
-    width: 500px;
-    height: 600px;
+.gamificacao {
+  width: 500px;
+  height: 600px;
 
-    padding: 40px;
+  padding: 40px;
 
-    background-color: #fff;
+  background-color: #fff;
 
-    border: solid 15px #cf5830;
-    border-radius: 30px;
+  border: solid 15px #cf5830;
+  border-radius: 30px;
 
-    color: black;
-    font-family: "Anta";
+  color: black;
+  font-family: "Anta";
 
-    position: absolute;
-    top: 10%;
-    left: 5%;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
+
+.sobre-gamifica {
+  left: 5%;
+}
+
+.sobre-gamifica {
+  width: 500px;
+  height: 600px;
+
+  padding: 40px;
+
+  background-color: #fff;
+
+  border: solid 15px #cf5830;
+  border-radius: 30px;
+
+  color: black;
+  font-family: "Anta";
+
+  position: absolute;
+  top: 10%;
 
 
-  }
 
-  .sobre-gamifica{
-    margin-bottom: 40px;
+}
 
-    font-size: 30px;
-    text-align: center;
-  }
+.sobre-gamifica {
+  margin-bottom: 40px;
 
-  .sobre-gamifica h2{
-    font-size: 30px;
+  font-size: 30px;
+  text-align: center;
+}
 
-  }
+.sobre-gamifica h2, .gamificacao h2 {
+  font-size: 30px;
 
-  .sobre-gamifica p{
-    font-size: 16px;
-    text-align: justify;
+}
 
-    line-height: 2;
-  }
+.sobre-gamifica p, .gamificacao p {
+  font-size: 16px;
+  text-align: justify;
+
+  line-height: 2;
+}
