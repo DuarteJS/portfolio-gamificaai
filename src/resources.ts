@@ -25,12 +25,12 @@ export const Resources = {
   Qualquer: new ImageSource(qualquer),
   Mapa: new TiledResource(tmxMapaPath, {
     pathMap: [
-      { path: "showroom_map.tmx?url", output: tmxMapaPath },
+      { path: "showroom_map.tmx", output: tmxMapaPath },
       { path: "Room_Builder_32x32.png", output: pngTilesetPath },
       { path: "tileset_parede.tsx", output: tsxParedesPath },
       { path: "tileset_generic.tsx", output: tsxGenericPath },
       { path: "tileset_estoque.tsx", output: tsxEstoquePath },
-      { path: "tileset_biblioteca", output: tsxBibliotecaPath }
+      { path: "tileset_biblioteca.tsx", output: tsxBibliotecaPath }
 
     ]
   })

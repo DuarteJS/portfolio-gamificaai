@@ -12,17 +12,19 @@ import { expoScene } from "./scenes/expoScene";
 const game = new Engine({
   width: 1200,
   height: 800,
-  canvasElementId: "jogo"
+  canvasElementId: "jogo",
+  // otimizacao para pixel art.
+  pixelArt: true
 })
 
 game.addScene("bemvindo", new welcomeScene())
 game.addScene("historia", new historyScene())
 game.addScene("gamificacao" , new gamificationScene())
-game.addScene("exposição", new expoScene)
+game.addScene("exposicao", new expoScene)
 
 
 game.start(loader).then(() => {
-game.goToScene("bemvindo",{
+game.goToScene("exposicao",{
   sourceOut: new FadeInOut ({ duration: 1000})
 })
 
