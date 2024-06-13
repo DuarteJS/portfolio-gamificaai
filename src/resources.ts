@@ -1,5 +1,5 @@
 // recursos de jogos(loader= som,img).
-import { ImageSource, Loader } from "excalibur";
+import { ImageFiltering, ImageSource, Loader } from "excalibur";
 import sword from "./images/sword.png";
 import logo from "./images/logo.png";
 import imagemG from "./images/logo-vertical.png";
@@ -17,10 +17,14 @@ import tsxBibliotecaPath from "./maps/tileset_biblioteca?url"
 
 import tmxMapaPath from "./maps/showroom_map.tmx?url"
 
+// importar a imagem do player
+import playerSpritePath from "./sprites/player.png"
+
 
 export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
+  PlayerSpriteSheet: new ImageSource (playerSpritePath, {filtering: ImageFiltering.Pixel}),
   ImagemG: new ImageSource(imagemG),
   Qualquer: new ImageSource(qualquer),
   Mapa: new TiledResource(tmxMapaPath, {
