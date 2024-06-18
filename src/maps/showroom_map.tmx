@@ -204,7 +204,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="7" name="BlocosColisores" width="29" height="20" visible="0" opacity="0.27" offsetx="138" offsety="100">
+ <layer id="7" name="BlocosColisores" width="29" height="20" visible="0" opacity="0.39" offsetx="138" offsety="100">
   <properties>
    <property name="solid" type="bool" value="true"/>
   </properties>

@@ -256,7 +256,7 @@
 //                 // zerar velocidade vertical
 //                 this.vel.y = 0
 //             }
-            
+
 //             // ao parar o player, definir animacao idle da ultima direcao
 //                 if( this.vel.x == 0 && this.vel.y == 0 ) {
 //                     // ultima direcao - left - up - right - down
@@ -265,7 +265,7 @@
 //                     // this.graphics.current!.scale = vec(1.6,1.6)
 
 //                 }
-            
+
 //         })
 
 //     }
@@ -547,30 +547,79 @@ export class Player extends Actor {
             }
 
         })
+
+        // configurar o player para monitorar evento "press" -> pressionar
+        engine.input.keyboard.on("press", (event) => {
+            // se a tecla f for pressionada e tiver objeto proximo
+            if (event.key == Keys.F && this.temObjetoProximo) {
+                // console.log("Interagiuu 👌");
+
+                // identificar alvo da interacao
+                if (this.ultimoColisor?.owner.name == "mesa_stand_a") {
+                    console.log("Essa é a mesa A");
+
+                    // vai para a cena passando qual o objeto da interacao
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+
+
+
+                }
+                if (this.ultimoColisor?.owner.name == "mesa_stand_b") {
+                    console.log("Essa é a mesa B");
+
+                    // vai para a cena passando qual o objeto da interacao
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+
+                }
+                if (this.ultimoColisor?.owner.name == "mesa_stand_c") {
+                    console.log("Essa é a mesa C");
+
+                    // vai para a cena passando qual o objeto da interacao
+                    engine.goToScene("case", {
+                        sceneActivationData: {
+                            nomeDoActor: this.ultimoColisor?.owner.name
+                        }
+                    })
+
+
+
+
+                }
+
+            }
+        })
     }
 
-onPreCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
-    // mostrar no console a colisao
-    // console.log(other.owner.name);
+    onPreCollisionResolve(self: Collider, other: Collider, side: Side, contact: CollisionContact): void {
+        // mostrar no console a colisao
+        // console.log(other.owner.name);
 
-    // indicar que tem um objeto proximo 
-    this.temObjetoProximo = true
-    // registrar o ultimo objeto colidido
-    this.ultimoColisor = other
-    
-}
+        // indicar que tem um objeto proximo 
+        this.temObjetoProximo = true
+        // registrar o ultimo objeto colidido
+        this.ultimoColisor = other
 
-onPreUpdate(engine: Engine<any>, delta: number): void {
-    // detectar se o player esta distante no ultimo objeto colidido
-    if (this.ultimoColisor && this.pos.distance(this.ultimoColisor.worldPos) > 35) {
-        // marcar que o objeto nao esta proximo
-        this.temObjetoProximo = false
-
-        console.log("Está longe");
-
-        
     }
-}
+
+    onPreUpdate(engine: Engine<any>, delta: number): void {
+        // detectar se o player esta distante no ultimo objeto colidido
+        if (this.ultimoColisor && this.pos.distance(this.ultimoColisor.worldPos) > 35) {
+            // marcar que o objeto nao esta proximo
+            this.temObjetoProximo = false
+
+            // console.log("Está longe");
+
+
+        }
+    }
 
 }
 
