@@ -1,9 +1,13 @@
-import { Actor, CollisionType, Color, Engine, FadeInOut, Scene, Transition, vec } from "excalibur";
+import { Actor, CollisionType, Color, Engine, FadeInOut, Scene, Sprite, Transition, vec } from "excalibur";
 import { Resources } from "../resources";
 import { Player } from "../actors/player";
 import { Npc } from "../actors/npc";
 
+
+
 export class expoScene extends Scene{
+    private listaNpc?: Sprite[]
+    
     onTransition(direction: "in" | "out"): Transition | undefined {
         return new FadeInOut({
             direction: direction,
