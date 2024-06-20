@@ -24,8 +24,7 @@ import tmxMapaPath from "./maps/showroom_map.tmx?url"
 import playerSpritePath from "./sprites/player.png"
 
 // importar imagem do npc
-import npcSpritePath from "./sprites/npc.png"
-import { Npc } from "./actors/npc";
+import npcSprite from "./sprites/npc.png"
 
 import ritmada from "./sounds/ritmada_zelda.mp3"
 import classico from "./sounds/zelda.mp3"
@@ -35,7 +34,7 @@ export const Resources = {
   Sword: new ImageSource(sword),
   Logo: new ImageSource(logo),
   PlayerSpriteSheet: new ImageSource (playerSpritePath, {filtering: ImageFiltering.Pixel}),
-  NpcSpriteSheet: new ImageSource (npcSpritePath, {filtering: ImageFiltering.Pixel }),
+  NpcSpriteSheet: new ImageSource (npcSprite, {filtering: ImageFiltering.Pixel }),
   ImagemG: new ImageSource(imagemG),
   Qualquer: new ImageSource(qualquer),
   Sorriso: new ImageSource(sorriso),

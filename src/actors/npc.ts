@@ -1,23 +1,22 @@
-import { Actor, CollisionType, Color, Engine, SpriteSheet, Vector, Animation, Sprite } from "excalibur";
+import { Actor, CollisionType, Engine, SpriteSheet, Vector, Animation, Sprite } from "excalibur";
 import { Resources } from "../resources";
 
 export class Npc extends Actor {
    
 
-    constructor(posicao: Vector, cor: Color, nome: string) {
+    constructor(posicao: Vector, nome: string) {
         super({
             pos: posicao,
             width: 32,
             height: 32,
             name: nome,
-            color: cor,
             collisionType: CollisionType.Fixed
         })
     }
     onInitialize(engine: Engine<any>): void {
         // Configurar spritesheet do npc
-        const npcSpriteSheet = SpriteSheet.fromImageSource({
-            image: Resources.PlayerSpriteSheet,
+        const spritesNpcA = SpriteSheet.fromImageSource({
+            image: Resources.NpcSpriteSheet,
             grid: {
                 spriteWidth: 32,    // 32
                 spriteHeight: 64,   // 64
@@ -30,22 +29,67 @@ export class Npc extends Actor {
                 }
             }
         })
+        // Configurar spritesheet do npc
+        const spritesNpcC = SpriteSheet.fromImageSource({
+            image: Resources.NpcSpriteSheet,
+            grid: {
+                spriteWidth: 32,    // 32
+                spriteHeight: 64,   // 64
+                columns: 56,
+                rows: 20
+            },
+            spacing: {
+                originOffset: {
+                    y: 0            // 8
+                }
+            }
+        })
+        // Configurar spritesheet do npc
+        const spritesNpcB = SpriteSheet.fromImageSource({
+            image: Resources.NpcSpriteSheet,
+            grid: {
+                spriteWidth: 32,    // 32
+                spriteHeight: 64,   // 64
+                columns: 56,
+                rows: 20
+            },
+            spacing: {
+                originOffset: {
+                    y: 0            // 8
+                }
+            }
+        })
+         
+        let spriteDefinido
+
+        if (this.name == "npc_a") {
+            spriteDefinido = spritesNpcA
+        }else if (this.name == "npc_b") {
+            spriteDefinido = spritesNpcB
+        }else if (this.name == "npc_c") {
+            spriteDefinido = spritesNpcC
+        }else {
+            console.log("Nome do NPC nao previsto:", this.name);
+            
+        }
 
         // Criar as animações
-        const duracaoFrameAnimacao = 70
+        // const duracaoFrameAnimacao = 70
         // Animações Idle
-        // Idle front
-        const upIdle = new Animation({
+        // Idle down
+        if (spriteDefinido){
+        const downIdle = new Animation({
             frames: [
-                { graphic: npcSpriteSheet.getSprite(18, 1) },
-                { graphic: npcSpriteSheet.getSprite(19, 1) },
-                { graphic: npcSpriteSheet.getSprite(20, 1) },
-                { graphic: npcSpriteSheet.getSprite(21, 1) },
-                { graphic: npcSpriteSheet.getSprite(22, 1) },
-                { graphic: npcSpriteSheet.getSprite(23, 1) }
+                { graphic: spriteDefinido.getSprite(18, 1) },
+                { graphic: spriteDefinido.getSprite(19, 1) },
+                { graphic: spriteDefinido.getSprite(20, 1) },
+                { graphic: spriteDefinido.getSprite(21, 1) },
+                { graphic: spriteDefinido.getSprite(22, 1) },
+                { graphic: spriteDefinido.getSprite(23, 1) }
             ],
-            frameDuration: duracaoFrameAnimacao
+            frameDuration: 70
         })
-        this.graphics.add("up-idle", upIdle)
+        this.graphics.add( downIdle)
+    }
     }
 }
